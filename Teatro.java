@@ -20,7 +20,7 @@ class Sala {
 
     public void gerarSimulacao() {
         Random rand = new Random();
-        // Limpa a sala antes de simular para não acumular
+        
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 12; j++) lugares[i][j] = ' ';
         }
@@ -36,11 +36,11 @@ class Sala {
     }
 
     public void exibirSala() {
-        System.out.println("===========================================");
-        System.out.println("  SALA: " + nome);
-        System.out.println("  ESPETÁCULO: " + espetaculo);
-        System.out.println("===========================================");
-        System.out.print("      ");
+  System.out.println("===========================================");
+   System.out.println("  SALA: " + nome);
+   System.out.println("  ESPETÁCULO: " + espetaculo);
+   System.out.println("===========================================");
+  System.out.print("      ");
         for (int j = 1; j <= 12; j++) System.out.printf("%-4d", j);
         System.out.println();
 
@@ -63,16 +63,16 @@ class Sala {
                 else if (lugares[i][j] == 'X') ocupados++;
             }
         }
-        double arrecadado = ocupados * preco;
-        double emReservas = reservados * (preco * 0.5);
-        double receitaPotencialMax = (livres + reservados + ocupados) * preco;
+double arrecadado = ocupados * preco;
+  double emReservas = reservados * (preco * 0.5);
+  double receitaPotencialMax = (livres + reservados + ocupados) * preco;
 
-        System.out.println("\n  [ ] Livre  [R] Reservada  [X] Ocupada");
-        System.out.println("  Livres: " + livres + " | Reservadas: " + reservados + " | Ocupadas: " + ocupados);
-        System.out.println("  Total Pago (100%): R$ " + arrecadado);
-        System.out.println("  Total Reservas (50%): R$ " + emReservas);
-        System.out.println("  Receita Máxima Possível: R$ " + receitaPotencialMax);
-        System.out.println("===========================================");
+  System.out.println("\n  [ ] Livre  [R] Reservada  [X] Ocupada");
+  System.out.println("  Livres: " + livres + " | Reservadas: " + reservados + " | Ocupadas: " + ocupados);
+ System.out.println("  Total Pago (100%): R$ " + arrecadado);
+System.out.println("  Total Reservas (50%): R$ " + emReservas);
+ System.out.println("  Receita Máxima Possível: R$ " + receitaPotencialMax);
+  System.out.println("===========================================");
     }
 
     public void leituraAvancada(String entrada, Scanner scanner) {
@@ -95,8 +95,8 @@ class Sala {
     }
 
     public void LinhaSelecionada(int linhaSel) {
-        System.out.println("\n--- Visualizando Linha " + (char)('A' + linhaSel) + " ---");
-        System.out.print("  " + (char)('A' + linhaSel) + " ");
+ System.out.println("\n--- Visualizando Linha " + (char)('A' + linhaSel) + " ---");
+ System.out.print("  " + (char)('A' + linhaSel) + " ");
         for (int j = 0; j < 12; j++) System.out.print("[" + lugares[linhaSel][j] + "]> ");
         System.out.println("\n");
     }
@@ -110,13 +110,19 @@ class Sala {
     }
 
     public void escolha_de_sofia(int linha, int coluna, Scanner scanner) {
-        System.out.println("\nCadeira " + (char)('A'+linha) + (coluna+1));
-        System.out.println("1- Reservar (R$ " + (preco*0.5) + ") | 2- Comprar (R$ " + preco + ") | 3- Cancelar | 4- Sair");
-        int op = scanner.nextInt();
+ System.out.println("\nCadeira " + (char)('A'+linha) + (coluna+1));
+ System.out.println("1- Reservar (R$ " + (preco*0.5) + ") | 2- Comprar (R$ " + preco + ") | 3- Cancelar | 4- Sair");
+  int op = scanner.nextInt();
         switch(op) {
-            case 1: reservarLugar(linha, coluna); break;
-            case 2: comprarLugar(linha, coluna); break;
-            case 3: cancelarReserva(linha, coluna); break;
+            case 1: reservarLugar(linha, coluna); 
+
+            break;
+            case 2: comprarLugar(linha, coluna); 
+            
+            break;
+            case 3: cancelarReserva(linha, coluna);
+            
+            break;
         }
     }
 
@@ -137,8 +143,8 @@ class Sala {
 
     public void cancelarReserva(int l, int c) {
         if (lugares[l][c] == 'R') {
-            lugares[l][c] = ' ';
-            System.out.println("Sucesso: Reserva cancelada e lugar liberado.");
+ lugares[l][c] = ' ';
+ System.out.println("Sucesso: Reserva cancelada e lugar liberado.");
         } else System.out.println("Erro: Só é possível cancelar lugares em estado [R].");
     }
 }
@@ -159,13 +165,13 @@ Sala[] salas = new Sala[3];
         int resposta;
 
         do {
-            System.out.println("\n--- MENU PRINCIPAL DEVISATE ---");
-            System.out.println("1- Acessar Sala: " + salas[salaAtual].nome);
-            System.out.println("2- Trocar/Simular Nova Sala (>)");
-            System.out.println("7- Lista de Exercícios (Submenu)");
-            System.out.println("0- Sair do Sistema");
-            System.out.print("Escolha: ");
-            resposta = scanner.nextInt();
+ System.out.println("\n--- MENU PRINCIPAL DEVISATE ---");
+ System.out.println("1- Acessar Sala: " + salas[salaAtual].nome);
+  System.out.println("2- Trocar/Simular Nova Sala (>)");
+  System.out.println("7- Lista de Exercícios (Submenu)");
+  System.out.println("0- Sair do Sistema");
+  System.out.print("Escolha: ");
+ resposta = scanner.nextInt();
 
             switch (resposta) {
                 case 1:
@@ -174,14 +180,20 @@ Sala[] salas = new Sala[3];
                     System.out.print("Entrada: ");
                     String input = scanner.next();
                     salas[salaAtual].leituraAvancada(input, scanner);
+
+
                     break;
                 case 2:
                     salaAtual = (salaAtual + 1) % 3;
                     salas[salaAtual].gerarSimulacao(); 
                     System.out.println("Sala alterada para: " + salas[salaAtual].nome);
+
+
                     break;
                 case 7:
                     menuExercicios(scanner);
+
+
                     break;
             }
         } while (resposta != 0);
@@ -197,7 +209,7 @@ Sala[] salas = new Sala[3];
             titulos[i] = "Exercício Teórico " + (i+1);
             enunciados[i] = "Este é o enunciado completo do exercício " + (i+1) + " sobre lógica em Java.";
         }
-        // Customizando alguns como exemplo:
+
         titulos[0] = "Par ou Ímpar"; enunciados[0] = "Crie um programa que receba um número e verifique se o resto da divisão por 2 é zero.";
         titulos[3] = "Cálculo de IMC"; enunciados[3] = "Algoritmo para ler peso e altura e calcular o índice de massa corporal.";
 
@@ -216,7 +228,6 @@ Sala[] salas = new Sala[3];
                 System.out.println((i + 1) + " - " + titulos[i]);
             }
 
-            // Operador ternário conforme exigido pelo professor
             String opA = (paginaAtual > 0) ? "A - Anterior | " : "";
             String opP = (paginaAtual < totalPaginas - 1) ? "P - Próxima | " : "";
 
@@ -230,10 +241,10 @@ Sala[] salas = new Sala[3];
             else if (comando.matches("\\d+")) {
                 int escolha = Integer.parseInt(comando) - 1;
                 if (escolha >= 0 && escolha < 20) {
-                    System.out.println("\n>>> EXIBINDO: " + titulos[escolha]);
-                    System.out.println(enunciados[escolha]);
-                    System.out.println("Pressione Enter para voltar...");
-                    scanner.nextLine(); scanner.nextLine(); // Pausa
+ System.out.println("\n>>> EXIBINDO: " + titulos[escolha]);
+ System.out.println(enunciados[escolha]);
+ System.out.println("Pressione enter para voltar");
+                    scanner.nextLine(); scanner.nextLine();
                 }
             }
         } while (true);
